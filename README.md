@@ -9,4 +9,4 @@ This repository contains all the files used in for coding the installation of th
     
 ![alt tag](https://cloud.githubusercontent.com/assets/4619862/6398154/3ead77b0-bdf2-11e4-94f0-540383dbbb9e.png)
 
-**Jut noticed that I've forgotten to draw the ground to Arduino. PLease connect the common ground from the extrenal power supply to the Arduino**
+**Just noticed that I've forgotten to draw the ground to Arduino. Please connect the common ground from the extrenal power supply to the Arduino**
