@@ -1,20 +1,25 @@
+//libraries for mking the applet window borderless
 import java.awt.MouseInfo;
 import java.awt.Point;
 import processing.opengl.*;
 
+//libraries for Kinect and GUI
 import SimpleOpenNI.*;
 import controlP5.*;
 
+//Libraries for OSC communication 
 import oscP5.*;
 import netP5.*;
 
-
+//Object Initializations for kinect and GUI. 
 SimpleOpenNI  kinect;
 ControlP5 cp5;
 
+//Object Initializations for OSC
 OscP5 oscP5;
 NetAddress puredata;
 
+//Object initialization for onscreen console monitor.. 
 Textarea myTextarea;
 
 int c = 0;
@@ -22,7 +27,7 @@ int mX, mY;
 
 float sum = 0;
 float previousSum = 0;
-float someValue = 10;
+float someDifferentValue = 10;
 
 Println console;
 
@@ -39,8 +44,9 @@ void setup() {
 
   ///////////////////////////////////////////////////  
   size(400, 200, OPENGL);
-  //size(400, 200, P3D);
-  //frame.setResizable(true);
+  
+  //Initial location on desktop where the frame would be placed
+  //when initialized.
   frame.setLocation(500, 200);
 
   ////////////////////////////////////////////////////
@@ -91,9 +97,10 @@ void draw() {
   //update the cam
   kinect.update();
 
-
+  //Initializing an object for wrapping the OSC message. 
   OscMessage myMessage = new OscMessage("/sumRGB");
-
+ 
+ //If the open button is pressed
   if (OSC_Gate==true) {
     //send osc messages
     println("Gate opened");
@@ -102,7 +109,12 @@ void draw() {
 
     sum = userList.size();
     println("visible people: " + " " + sum);
-
+//Here is a trick/
+//In pure data, if they continiously receive a value, they continiously
+//trigger the sample player and so it never starts. 
+//This simple logic here send a value that can be used by Pure data
+//only when the value changes and is necessary for Pure data to know 
+//the value has changed to trigger a different sample accordingly
     if (previousSum != sum) {
 
       myMessage.add(sum);
@@ -112,7 +124,7 @@ void draw() {
     previousSum = sum;
 
     if (previousSum == sum) {
-      myMessage.add(someValue);
+      myMessage.add(someDifferentValue);
       oscP5.send(myMessage, puredata);
     }
   } else {
