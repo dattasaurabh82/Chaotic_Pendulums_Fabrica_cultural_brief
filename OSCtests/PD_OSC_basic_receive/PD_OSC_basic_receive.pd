@@ -1,0 +1,166 @@
+#N canvas 20 30 1062 638 10;
+#X declare -lib mrpeach;
+#N canvas 19 156 225 140 receive 0;
+#X obj 62 54 import mrpeach;
+#X obj 64 207 outlet;
+#X obj 64 123 unpackOSC;
+#X obj 64 95 udpreceive 12000;
+#X obj 64 179 unpack f;
+#X obj 64 152 routeOSC /sumRGB;
+#X obj 120 206 print sumRGB;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 1 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X restore 95 23 pd receive;
+#X floatatom 95 54 5 0 0 0 - - -;
+#X obj 10 11 tgl 15 0 empty empty empty 17 7 0 10 -4032 -1 -1 1 1;
+#X msg 10 33 \; pd dsp \$1;
+#X msg 95 167 open chiraw_wav.wav;
+#X msg 12 167 start;
+#X msg 56 167 stop;
+#X obj 155 210 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 95 193 readsf~;
+#X obj 96 222 env~;
+#X obj 97 278 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 96 247 - 100;
+#X obj 56 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+-1;
+#X msg 177 23 0;
+#X msg 247 245 start;
+#X msg 291 245 stop;
+#X obj 344 288 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 291 271 readsf~;
+#X obj 290 300 env~;
+#X obj 291 356 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 290 325 - 100;
+#X obj 291 216 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 12 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X obj 247 216 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X msg 435 315 start;
+#X msg 479 315 stop;
+#X obj 532 358 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 479 341 readsf~;
+#X obj 478 370 env~;
+#X obj 479 426 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 478 395 - 100;
+#X obj 479 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 435 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X obj 166 262 dac~;
+#X msg 611 84 start;
+#X msg 655 84 stop;
+#X obj 708 127 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 655 110 readsf~;
+#X obj 654 139 env~;
+#X obj 655 195 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 654 164 - 100;
+#X obj 655 55 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+-1;
+#X obj 611 55 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X msg 831 242 start;
+#X msg 875 242 stop;
+#X obj 938 285 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 875 268 readsf~;
+#X obj 874 297 env~;
+#X obj 875 353 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 874 322 - 100;
+#X obj 875 213 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 831 213 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X msg 522 314 open sono.wav;
+#X msg 353 244 open bambooChimes.wav;
+#X msg 698 83 open AutoViolin.wav;
+#X msg 918 241 open sadtapes.wav;
+#X text 31 8 Audio on/off;
+#X obj 95 83 select 1 2 3 4 5;
+#X text 201 21 Reset to 0;
+#X text 93 -17 Receiving OSC sub- -patch;
+#X connect 0 0 1 0;
+#X connect 1 0 57 0;
+#X connect 2 0 3 0;
+#X connect 4 0 8 0;
+#X connect 4 0 22 0;
+#X connect 5 0 8 0;
+#X connect 6 0 8 0;
+#X connect 7 0 4 0;
+#X connect 8 0 9 0;
+#X connect 8 0 33 0;
+#X connect 8 1 7 0;
+#X connect 9 0 11 0;
+#X connect 11 0 10 0;
+#X connect 12 0 6 0;
+#X connect 13 0 1 0;
+#X connect 14 0 17 0;
+#X connect 15 0 17 0;
+#X connect 16 0 53 0;
+#X connect 17 0 18 0;
+#X connect 17 0 33 0;
+#X connect 17 1 16 0;
+#X connect 18 0 20 0;
+#X connect 20 0 19 0;
+#X connect 21 0 15 0;
+#X connect 22 0 5 0;
+#X connect 23 0 14 0;
+#X connect 24 0 27 0;
+#X connect 25 0 27 0;
+#X connect 26 0 52 0;
+#X connect 27 0 28 0;
+#X connect 27 0 33 0;
+#X connect 27 1 26 0;
+#X connect 28 0 30 0;
+#X connect 30 0 29 0;
+#X connect 31 0 25 0;
+#X connect 32 0 24 0;
+#X connect 34 0 37 0;
+#X connect 35 0 37 0;
+#X connect 36 0 54 0;
+#X connect 37 0 38 0;
+#X connect 37 0 33 0;
+#X connect 37 1 36 0;
+#X connect 38 0 40 0;
+#X connect 40 0 39 0;
+#X connect 41 0 35 0;
+#X connect 42 0 34 0;
+#X connect 43 0 46 0;
+#X connect 44 0 46 0;
+#X connect 45 0 55 0;
+#X connect 46 0 47 0;
+#X connect 46 0 33 0;
+#X connect 46 1 45 0;
+#X connect 47 0 49 0;
+#X connect 49 0 48 0;
+#X connect 50 0 44 0;
+#X connect 51 0 43 0;
+#X connect 52 0 27 0;
+#X connect 52 0 32 0;
+#X connect 53 0 17 0;
+#X connect 53 0 23 0;
+#X connect 54 0 37 0;
+#X connect 54 0 42 0;
+#X connect 55 0 46 0;
+#X connect 55 0 51 0;
+#X connect 57 0 4 0;
+#X connect 57 0 21 0;
+#X connect 57 0 41 0;
+#X connect 57 0 50 0;
+#X connect 57 1 53 0;
+#X connect 57 1 31 0;
+#X connect 57 1 50 0;
+#X connect 57 2 52 0;
+#X connect 57 2 41 0;
+#X connect 57 3 54 0;
+#X connect 57 3 50 0;
+#X connect 57 4 55 0;
