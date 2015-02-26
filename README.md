@@ -6,4 +6,5 @@ This repository contains all the files used in for coding the installation of th
   
   
     Circuit Diagram: 
-    ![circuit diagram](https://cloud.githubusercontent.com/assets/4619862/6398154/3ead77b0-bdf2-11e4-94f0-540383dbbb9e.png)
+    
+![alt tag](https://cloud.githubusercontent.com/assets/4619862/6398154/3ead77b0-bdf2-11e4-94f0-540383dbbb9e.png)
